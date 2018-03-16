@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>QM Salsa</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% load static %}
+    <link rel="manifest" href="{% static 'reg_guests/site.webmanifest' %}">
+    <link rel="apple-touch-icon" href="{% static 'reg_guests/icon.png' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'reg_guests/favicon.ico' %}" />
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'reg_guests/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'reg_guests/css/main.css' %}">
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- Add your site or application content here -->
+    
+
+    <div class="page-header">
+            <a href="{% url 'guest_list' %}" class="top-menu"> Home <span class="glyphicon glyphicon-home"></span></a>
+        <a href="{% url 'register_new' %}" class="top-menu"> Add new guest <span class="glyphicon glyphicon-plus"></span></a>        
+        <h1>Salsa & Bachata Night</h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="{% static 'reg_guests/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
+    </script>
+    <script src="{% static 'reg_guests/js/plugins.js' %}"></script>
+    <script src="{% static 'reg_guests/js/main.js' %}"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>

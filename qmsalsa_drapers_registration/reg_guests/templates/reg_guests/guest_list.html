@@ -1,77 +1,28 @@
-<!doctype html>
-<html class="no-js" lang="">
+{% extends 'reg_guests/base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>QM Salsa Registration</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    {% load static %}
-    <link rel="manifest" href="{% static 'reg_guests/site.webmanifest' %}">
-    <link rel="apple-touch-icon" href="{% static 'reg_guests/icon.png' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'reg_guests/favicon.ico' %}" />
-    <!-- Place favicon.ico in the root directory -->
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
-    <link rel="stylesheet" href="{% static 'reg_guests/css/normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'reg_guests/css/main.css' %}">
-</head>
+{% block content %}
+<h3>Guest List</h3>
 
-<body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <h1>Salsa & Bachata Night - Guest List</h1>
-    
-    <table>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Arrived At</th>
-            <th>Amount Paid</th>
-            <th>Level</th>
-        </tr>
-        {% for guest in guests %} 
-        <tr>
-            <th>{{ guest.first_name }}</th>
-            <th>{{ guest.last_name }}</th>
-            <th>{{ guest.registration_time }}</th>
-            <th>{{ guest.amount_paid }}</th>
-            {% if guest.is_new_to_salsa %}
-                <th>Beginner</th>
-            {% else %}
-                <th>Improver</th>
-            {% endif %}
-        </tr>
-        {% endfor %}
-
-    </table>
-    
-
-    <script src="{% static 'reg_guests/js/vendor/modernizr-3.5.0.min.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
-    </script>
-    <script src="{% static 'reg_guests/js/plugins.js' %}"></script>
-    <script src="{% static 'reg_guests/js/main.js' %}"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function () {
-            ga.q.push(arguments)
-        };
-        ga.q = [];
-        ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-</body>
-
-</html>
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Arrived At</th>
+        <th>Amount Paid</th>
+        <th>Level</th>
+    </tr>
+    {% for guest in guests %}
+    <tr>
+        <th>{{ guest.first_name }}</th>
+        <th>{{ guest.last_name }}</th>
+        <th>{{ guest.registration_time }}</th>
+        <th>{{ guest.amount_paid }}</th>
+        {% if guest.is_new_to_salsa %}
+        <th>Beginner</th>
+        {% else %}
+        <th>Improver</th>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
