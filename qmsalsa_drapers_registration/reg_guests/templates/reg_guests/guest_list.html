@@ -1,28 +1,58 @@
-{% extends 'reg_guests/base.html' %}
+{% extends 'reg_guests/base.html' %} {% block content %}
+<div class="container">
+    <h3>Salsa & Bachata Night in Drapers</h3>
+    <p>
+        This list shows all attendees registered for our event. Please use the 'New Guest' button below to add more guests to the
+        list.
+    </p>
 
-{% block content %}
-<h3>Guest List</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="nav flex-column">
+                <a href="{% url 'register_new' %}" class="top-menu">
+                    <i class="far fa-plus-square"></i>
+                    New Guest
+                </a>
+            </div>
+        </div>
 
-<table>
-    <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Arrived At</th>
-        <th>Amount Paid</th>
-        <th>Level</th>
-    </tr>
-    {% for guest in guests %}
-    <tr>
-        <th>{{ guest.first_name }}</th>
-        <th>{{ guest.last_name }}</th>
-        <th>{{ guest.registration_time }}</th>
-        <th>{{ guest.amount_paid }}</th>
-        {% if guest.is_new_to_salsa %}
-        <th>Beginner</th>
-        {% else %}
-        <th>Improver</th>
-        {% endif %}
-    </tr>
-    {% endfor %}
-</table>
+        <div class="col-md-9">
+            <div class="guest-list">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Arrived At</th>
+                            <th scope="col">Amount Paid</th>
+                            <th scope="col">Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for guest in guests %}
+                        <tr>
+                            <td>{{ guest.first_name }}</td>
+                            <td>{{ guest.last_name }}</td>
+                            <td>{{ guest.registration_time }}</td>
+                            <td>{{ guest.amount_paid }}</td>
+                            {% if guest.is_new_to_salsa %}
+                            <td>Beginner</td>
+                            {% else %}
+                            <td>Improver</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+
 {% endblock %}
