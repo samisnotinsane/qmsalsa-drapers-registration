@@ -1,2 +1,7 @@
 .vscode
 qmsalsa_drapers_registration/db.sqlite3
+qmsalsa_drapers_registration/db.json
+qmsalsa_drapers_registration/db.sqlite3
+qmsalsa_drapers_registration/guest_db.json
+qmsalsa_drapers_registration/guest_db.txt
+qmsalsa_drapers_registration/db.sqlite3
